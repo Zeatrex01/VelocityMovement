@@ -24,14 +24,18 @@ public class StrafeMovement : MonoBehaviour
     private float jumpPressDuration = 0.1f;
 	private bool onGround = false;
     
+    public void Start()
+    {
+     Cursor.lockState = CursorLockMode.Locked;   
+    }
 	private void Update()
     {
         print(new Vector3(GetComponent<Rigidbody>().velocity.x, 0f, GetComponent<Rigidbody>().velocity.z).magnitude);
         if (Input.GetButton("Jump"))
-		{
-			lastJumpPress = Time.time;
-		}
-	}
+        {
+            lastJumpPress = Time.time;
+        }
+    }
 
 	private void FixedUpdate()
 	{
